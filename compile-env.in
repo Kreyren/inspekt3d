@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Makefile.am
+#
+# Copyright 2018 Kavalogic, Inc.
+#
+# This file is part of Inspekt3d.
+#
+# Inspekt3d is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# Inspekt3d is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU General Public
+# License along with this program.  If not, see
+# <http://www.gnu.org/licenses/>.
+#
+# From the Guile-OpenGL 0.1.0 source file:
+#   ./env.in
+
+GUILE_LOAD_PATH=@abs_top_srcdir@:$GUILE_LOAD_PATH
+if test "@abs_top_srcdir@" != "@abs_top_builddir@"; then
+    GUILE_LOAD_PATH=@abs_top_builddir@:$GUILE_LOAD_PATH
+fi
+GUILE_LOAD_COMPILED_PATH=@abs_top_builddir@:$GUILE_LOAD_PATH
+PATH=@abs_top_builddir@/bin:$PATH
+
+export GUILE_LOAD_PATH
+export GUILE_LOAD_COMPILED_PATH
+export PATH
+
+exec "$@"

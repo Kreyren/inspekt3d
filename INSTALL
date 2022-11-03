@@ -1,0 +1,43 @@
+(Only tested on Ubuntu 18.04 so far.)
+
+Required software/libraries:
+
+o Guile 2.2.1 or later
+  Site: https://www.gnu.org/software/guile/
+  License: LGPL 3+
+
+o Guile-OpenGL 0.1.0
+  Site: https://www.gnu.org/software/guile-opengl/
+  License: LGPL 3+
+
+  * Inspekt3d requires Freeglut 3.
+
+o Libfive
+  Site: www.libfive.com
+  License: LGPL 2.1+, GPL 2+
+
+  * For the best compatibility with Libfive, make sure to install it
+    from the latest commit in the Libfive master branch.
+
+Optional software/libraries:
+
+o Emacs (recent version)
+  Site: https://www.gnu.org/software/emacs/
+  License: GPL 3+
+
+o Geiser
+  Site: http://www.nongnu.org/geiser/
+  License: BSD 3-clause
+
+Installation:
+
+Inspekt3d uses the standard Autotools build system, so:
+
+    ./bootstrap
+    ./configure --prefix=/usr
+    sudo make install
+
+will install Inspekt3d to the '/usr' prefix.
+
+You can test the installation with:
+    guile -l ./examples/sphere.scm
